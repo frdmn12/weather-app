@@ -1,12 +1,22 @@
+import Background from "./components/Background";
 import { CurrentWeather } from "./components/CurrentWeather";
 import { InputForm } from "./components/InputForm";
 
 function App() {
   return (
-    <main className="bg-gray1 flex flex-col items-center p-3">
-      <InputForm />
-      <CurrentWeather temperature={12} description="hello" humidity={12} location="mumbai"/>
-    </main>
+    <div className="relative z-10">
+      <Background />
+      <main className=" flex flex-col flex-center nav-height relative z-20">
+        <InputForm />
+        <CurrentWeather
+          temperature={12}
+          description="Yes its raining"
+          humidity={12}
+          location="mumbai"
+          wind={10}
+        />
+      </main>
+    </div>
   );
 }
 

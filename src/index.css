@@ -21,9 +21,6 @@
   }
 
   .nav-height {
-    @apply h-[calc(120vh-60px)];
+    @apply h-[calc(110vh-50px)];
   }
-  /* .nav-height-mobile {
-    @apply h-[calc(120vh-20px)];
-  } */
 }

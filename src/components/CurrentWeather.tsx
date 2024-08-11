@@ -1,10 +1,11 @@
-import { cloudWeather } from "../utils";
+import { capitalizeFirstLetter } from "../utils/capitalizeFirstLetter";
 
 type CurrentWeatherProps = {
   temperature: number;
   description: string;
   humidity: number;
   location: string;
+  wind: number;
 };
 
 export const CurrentWeather = ({
@@ -12,17 +13,20 @@ export const CurrentWeather = ({
   description,
   humidity,
   location,
+  wind,
 }: CurrentWeatherProps) => {
   return (
-    <section className="p-2 w-[50%] shadow-md bg-white mx-2 rounded-2xl items-center flex flex-col">
+    <section className="px-5 py-3 w-[40%] shadow-md bg-black text-white mx-2 rounded-2xl items-start justify-start flex flex-col">
+      <h1 className="font-bold text-2xl">{capitalizeFirstLetter(location)}</h1>
+      <h1 className="font-medium text-base">Wednesdy - 29 May</h1>
+      <p className="font-bold text-[9rem]">{temperature}°C</p>
       <div>
-        <img src={cloudWeather} alt="" className="object-cover w-40" />
+        <p className="font-medium text-base">{description}</p>
       </div>
-      <h2>Current Weather</h2>
-      <p>Locaiton: {location}</p>
-      <p>Temperature: {temperature}°C</p>
-      <p>Description: {description}</p>
-      <p>Humidity: {humidity}%</p>
+      <div className="grid grid-cols-2 gap-2 my-5">
+        <p className="font-normal">Humidity: {humidity}%</p>
+        <p className="font-normal">Wind : {wind} km/h</p>
+      </div>
     </section>
   );
 };
