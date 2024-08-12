@@ -1,11 +1,10 @@
 import axios from 'axios';
 import { capitalizeFirstLetter } from '../utils/capitalizeFirstLetter';
 
-const API_KEY = '0b39dc450d83d6245f1fed373b569b41';
-const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
+const API_KEY = import.meta.env.VITE_API_KEY as string; 
+const BASE_URL = import.meta.env.VITE_BASE_URL as string;
 
 export const getWeatherByLocation = async (location: string) => {
-    
   try {
     const response = await axios.get(BASE_URL, {
       params: {
