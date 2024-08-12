@@ -24,15 +24,12 @@ function App() {
       location: data.name,
       wind: data.wind.speed,
     });
-  }
-  
+  };
   return (
     <div className="relative z-10">
       <Background />
       <main className=" flex flex-col flex-center nav-height relative z-20">
-        <InputForm 
-        onSearch={onSearch}
-        />
+        <InputForm onSearch={onSearch} />
         <CurrentWeather
           temperature={weather?.temperature || 0}
           description={weather?.description || "No data"}
