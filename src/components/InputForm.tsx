@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { IoIosSearch } from "react-icons/io";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 type InputFormProps = {
   onSearch: (city: string) => void;
@@ -19,8 +21,18 @@ export function InputForm({onSearch} : InputFormProps ) {
     setLocation("");
   };
 
+  useGSAP(() => {
+    gsap.from("#input_form", {
+      delay: 1.5,
+      duration: 2,
+      scale: 0.5,
+      opacity: 0,
+      ease: "power4.out",
+    });
+  }, []);
+
   return (
-    <section className="flex flex-col justify-center items-center p-3">
+    <section id="input_form" className="flex flex-col justify-center items-center p-3">
       <form action="" onSubmit={handleSubmit} className="flex items-center justify-center">
         <input
           type="text"
